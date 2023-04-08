@@ -8,9 +8,11 @@
 
                 <main>
                     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                    <h2>This is my Homepage!</h2>
+                        <h2>This is my Homepage!</h2>
+                        <?php require "partials/form.php"; ?>
                     </div>
                 </main>
             </div>
+
 
 <?php require "partials/footer.php"; ?>
