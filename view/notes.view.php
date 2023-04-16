@@ -10,11 +10,11 @@
                     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
                         <h2 class="mb-5">Your notes:</h2>
 
-                        <?php foreach ($notes as $note) : ?>
-                            
-                            <li class="mb-5"><?= $note['articolo'] ?></li>
+                            <?php foreach ($notes as $note) : ?>
+                                
+                                <li class="mb-5 hover:underline hover:text-blue-600"><a href="/note?articleid=<?= $note['articleid'] ?>"><?= $note['articolo'] ?></a></li>
 
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
                         <?php require "partials/form.php"; ?>
                     </div>
