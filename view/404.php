@@ -6,7 +6,8 @@
 
     <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <h2>This is About Us page!</h2>
+            <h2>Risorsa non trovata...</h2>
+            <li class="mt-5 hover:underline hover:text-blue-600"><a href="/" aria-current="page">Ritorna alla Homepage</a></li>
         </div>
     </main>
 </div>

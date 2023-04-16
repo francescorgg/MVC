@@ -8,6 +8,8 @@ $routes = [
     '/notes' => 'controllers/notes.php'
 ];
 
+routeToController($uri, $routes);
+
 function abort($error = 404){
 
     http_response_code($error);
