@@ -11,9 +11,10 @@ class Database
         $this->connection = new PDO($dsn, 'root');
     }
 
-    public function query($sql){
+    public function query($sql, $params = []){
+
         $statement = $this->connection->prepare($sql);
-        $statement->execute();
+        $statement->execute($params);
 
         return $statement;
     }
