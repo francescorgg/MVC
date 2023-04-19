@@ -18,6 +18,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errors['comment'] = "Non puoi scrivere testi maggiori di 1000 caratteri";
     }
 
+    if(htmlentities($_POST['comment'])){
+        $errors['comment'] = "Non puoi scrivere testi maggiori di 1000 caratteri";
+    }
+
     if(empty($errors)){
         $db->query("INSERT INTO articoli (articolo, id_utenti) VALUES (:articolo, :id)", ['articolo' => $_POST['comment'], 'id' => 1]);
     }
