@@ -11,7 +11,6 @@
   
                                 <p><?= $note['articolo'] ?></p>
 
-                        <?php require "partials/form.php"; ?>
                     </div>
                 </main>
             </div>
