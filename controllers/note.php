@@ -6,14 +6,14 @@ $db = new Database($config['database']);
 
 $user = 1;
 
-$notes = $db->query('SELECT * FROM articoli WHERE articleid = :id', ['id' => $_GET['articleid']])->fetchAll();
+$note = $db->query('SELECT * FROM articoli WHERE articleid = :id', ['id' => $_GET['articleid']])->fetch();
 
-if(!$notes){
+if(!$note){
     abort();
 }
 
-if($notes[0]['id_utenti'] != $user){
+if($note['id_utenti'] != $user){
     abort(Response::FORBIDDEN);
 }
 
-require "view/notes.view.php";
+require "view/note.view.php";
