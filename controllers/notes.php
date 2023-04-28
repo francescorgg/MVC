@@ -1,7 +1,7 @@
 <?php
-
+require 'Validator.php';
 $title = 'My Notes';
-$config = (require "conf.php");
+$config = require "conf.php";
 $db = new Database($config['database']);
 
 $notes = $db->query('SELECT * FROM articoli WHERE id_utenti = 1')->fetchAll();
@@ -10,12 +10,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $errors = [];
 
-    if(strlen($_POST['comment']) == 0){
-        $errors['comment'] = "Questo campo deve essere compilato";
-    }
-
-    if(strlen($_POST['comment']) > 1000){
-        $errors['comment'] = "Non puoi scrivere testi maggiori di 1000 caratteri";
+    if(!Validator::string($_POST['comment'], 1, 1000)){
+        $errors['comment'] = "Questo campo deve essere compilato e non deve contenere più di 1000 caratteri";
     }
 
     if(empty($errors)){
@@ -24,9 +20,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
 }
-
-// if(isset($_POST['comment'])){
-//     dd('Stai postando!');
-// }
 
 require "view/notes.view.php";
