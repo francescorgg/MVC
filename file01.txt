@@ -1,1 +1,0 @@
-il mio nome è francesco, e ho scritto questo testo tramite il comando "vi" nella bash, ora ho aggiunto una modifica
