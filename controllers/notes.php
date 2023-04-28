@@ -1,7 +1,7 @@
 <?php
-require 'Validator.php';
+require base_path('Validator.php');
 $title = 'My Notes';
-$config = require "conf.php";
+$config = require base_path("conf.php");
 $db = new Database($config['database']);
 
 $notes = $db->query('SELECT * FROM articoli WHERE id_utenti = 1')->fetchAll();
@@ -21,4 +21,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 }
 
-require "view/notes.view.php";
+require view("notes.view.php");

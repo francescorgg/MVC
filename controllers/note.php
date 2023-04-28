@@ -1,7 +1,7 @@
 <?php
 
 $title = 'Note';
-$config = (require "conf.php");
+$config = require base_path("conf.php");
 $db = new Database($config['database']);
 
 $user = 1;
@@ -16,4 +16,4 @@ if($note['id_utenti'] != $user){
     abort(Response::FORBIDDEN);
 }
 
-require "view/note.view.php";
+require view("note.view.php");
