@@ -2,7 +2,8 @@
 
 class Database
 {
-    private $connection;
+    public $connection;
+    public $statement;
 
     public function __construct($config)
     {
