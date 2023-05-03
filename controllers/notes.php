@@ -1,6 +1,10 @@
 <?php
 require base_path('Validator.php');
-$title = 'My Notes';
+//$title = 'My Notes';
+//commentiamo la variabile per rifattorizzare tramite la funzione view la presentazione delle viste aggiungendo come
+//secondo parametro un metodo di php: "extract". In questo modo fissiamo il bug "Warning: Undefined variable $title"
+
+
 $config = require base_path("conf.php");
 $db = new Database($config['database']);
 
@@ -21,4 +25,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 }
 
-require view("notes.view.php");
+view("notes.view.php", ['title' => 'My Notes', 'notes' => $notes]);

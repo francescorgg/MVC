@@ -20,6 +20,10 @@ function base_path($path_file){
     return BASE_PATH . $path_file;
 }
 
-function view($path){
-    return base_path('view/') . $path;
+function view($path, $attribute = []){
+
+    extract($attribute);
+
+    require base_path('view/') . $path;
+
 }
