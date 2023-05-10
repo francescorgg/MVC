@@ -8,7 +8,9 @@ require BASE_PATH . "Core/functions.php";
 
 spl_autoload_register(function($f){
 
-    require base_path("Core/".$f.".php");
+    $result = str_replace('\\', '/', $f);
+
+    require base_path("{$result}.php");
 
 });
 

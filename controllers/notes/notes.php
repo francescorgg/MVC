@@ -1,4 +1,7 @@
 <?php
+use Core\Database;
+use Core\Validator;
+
 require base_path('Core/Validator.php');
 //$title = 'My Notes';
 //commentiamo la variabile per rifattorizzare tramite la funzione view la presentazione delle viste aggiungendo come
