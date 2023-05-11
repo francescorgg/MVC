@@ -1,29 +1,29 @@
 <?php
 
-function abort($error = 404){
+// function abort($error = 404){
 
-    http_response_code($error);
+//     http_response_code($error);
 
-    require base_path("view/{$error}.php");
+//     require base_path("view/{$error}.php");
 
-    die();
+//     die();
 
-}
+// }
 
-function routeToController($uri, $routes){
+// function routeToController($uri, $routes){
     
-    if(array_key_exists($uri, $routes)){
+//     if(array_key_exists($uri, $routes)){
 
-        require base_path($routes[$uri]);
+//         require base_path($routes[$uri]);
         
-    } else {
+//     } else {
         
-        abort();
+//         abort();
         
-    };
+//     };
     
-}
+// }
 
-$routes = require base_path('routes.php');
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-routeToController($uri, $routes);
+// $routes = require base_path('routes.php');
+// $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+// routeToController($uri, $routes);
