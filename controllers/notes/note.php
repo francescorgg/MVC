@@ -10,31 +10,18 @@ use Core\Response;
 $config = require base_path("conf.php");
 $db = new Database($config['database']);
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+$user = 1;
 
-    if($note['id_utenti'] != $user){
-        abort(Response::FORBIDDEN);
-    }
+$note = $db->query('SELECT * FROM articoli WHERE articleid = :id', ['id' => $_GET['articleid']])->fetch();
 
-    $db->query('DELETE FROM articoli WHERE articleid = :id', ['id' => $_GET['articleid']]);
+if(!$note){
+    abort();
+}
 
-    header('location: /notes');
-    exit;
-
-} 
-
-    $user = 1;
+if($note['id_utenti'] != $user){
+    abort(Response::FORBIDDEN);
+}
     
-    $note = $db->query('SELECT * FROM articoli WHERE articleid = :id', ['id' => $_GET['articleid']])->fetch();
-    
-    if(!$note){
-        abort();
-    }
-    
-    if($note['id_utenti'] != $user){
-        abort(Response::FORBIDDEN);
-    }
-        
-    view("note.view.php", ['title' => 'Note', 'note' => $note]);
+view("note.view.php", ['title' => 'Note', 'note' => $note]);
 
 
