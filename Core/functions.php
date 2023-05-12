@@ -27,3 +27,13 @@ function view($path, $attribute = []){
     require base_path('view/') . $path;
 
 }
+
+function abort($error = 403){
+    
+    http_response_code($error);
+
+    require base_path("view/{$error}.php");
+
+    die();
+
+}
