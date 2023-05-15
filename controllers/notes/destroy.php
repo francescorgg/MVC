@@ -1,12 +1,9 @@
 <?php
-
 use Core\Database;
 use Core\Response;
 
-
 $config = require base_path("conf.php");
 $db = new Database($config['database']);
-
 
 $user = 1;
     
@@ -19,8 +16,6 @@ if(!$note){
 if($note['id_utenti'] != $user){
     abort(Response::FORBIDDEN);
 }
-
-
 
 $db->query('DELETE FROM articoli WHERE articleid = :id', ['id' => $_POST['articleid']]);
 
