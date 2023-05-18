@@ -15,6 +15,9 @@ spl_autoload_register(function($class){
 
 });
 
+
+require base_path('bootstrap.php');
+
 //require base_path("Core/router.php");
 //adesso sostituiamo il require del file, con l'istanza della nuova classe Router
 

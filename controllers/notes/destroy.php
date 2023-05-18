@@ -1,9 +1,13 @@
 <?php
+
+use Core\App;
 use Core\Database;
 use Core\Response;
 
-$config = require base_path("conf.php");
-$db = new Database($config['database']);
+// $config = require base_path("conf.php");
+// $db = new Database($config['database']);
+
+$db = App::resolve(Database::class);
 
 $user = 1;
     
