@@ -1,4 +1,5 @@
 <?php
+use Core\App;
 use Core\Database;
 use Core\Validator;
 
@@ -9,7 +10,8 @@ require base_path('Core/Validator.php');
 
 
 $config = require base_path("conf.php");
-$db = new Database($config['database']);
+//$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $notes = $db->query('SELECT * FROM articoli WHERE id_utenti = 1')->fetchAll();
 

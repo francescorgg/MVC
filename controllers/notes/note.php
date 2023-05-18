@@ -1,5 +1,5 @@
 <?php
-
+use Core\App;
 use Core\Database;
 use Core\Response;
 //$title = 'Note';
@@ -8,7 +8,8 @@ use Core\Response;
 
 
 $config = require base_path("conf.php");
-$db = new Database($config['database']);
+// $db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
 $user = 1;
 
